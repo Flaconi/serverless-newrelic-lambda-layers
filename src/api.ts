@@ -6,7 +6,7 @@ export const nerdgraphFetch = async (
   query: string
 ) => {
   const gqlUrl = region.includes("eu")
-    ? "https://api.eu.newrelic.com/graphql"
+    ? "https://api.newrelic.com/graphql"
     : "https://api.newrelic.com/graphql";
 
   const res = await fetch(gqlUrl, {
