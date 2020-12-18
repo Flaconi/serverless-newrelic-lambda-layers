@@ -235,6 +235,13 @@ class NewRelicLambdaLayerPlugin {
                 if (!this.managedSecretConfigured && this.licenseKey) {
                     environment.NEW_RELIC_LICENSE_KEY = this.licenseKey;
                 }
+                if (this.config.enableFunctionLogs) {
+                    environment.NEW_RELIC_EXTENSION_SEND_FUNCTION_LOGS = "true";
+                    this.config.disableAutoSubscription = true;
+                }
+            }
+            else {
+                environment.NEW_RELIC_LAMBDA_EXTENSION_ENABLED = "false";
             }
             funcDef.environment = environment;
             funcDef.handler = this.getHandlerWrapper(runtime, handler);
