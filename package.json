@@ -11,10 +11,11 @@
   ],
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "test": "jest",
+    "test": "jest --coverage --coverageReporters=lcov",
     "test:watch": "jest --watchAll",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "generate:test:case": "yaml2json examples/nodejs/serverless.yml > tests/fixtures/example.input.service.json"
+    "generate:test:case": "yaml2json examples/nodejs/serverless.yml > tests/fixtures/example.input.service.json",
+    "lint:report": "eslint -f json -o eslint-report.json {src,tests}/**/*.ts"
   },
   "husky": {
     "hooks": {

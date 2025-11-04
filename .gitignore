@@ -66,3 +66,4 @@ dist/
 
 .DS_Store
 example.service.input.json
+eslint-report.json
